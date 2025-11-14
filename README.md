@@ -1,101 +1,132 @@
-🥊 Proyecto Guardia-ML
+# 🥊 Guardia-ML: Clasificación de Guardia en Boxeo
 
-Clasificación de guardia en boxeo mediante Pose Detection + Deep Learning
+> **🤖 Clasifica la guardia de un boxeador en tiempo real usando Pose Detection y Deep Learning**
 
-Este proyecto implementa un sistema capaz de detectar la guardia de un boxeador en tiempo real usando:
+---
 
-MediaPipe Pose
+## ✨ ¿Qué es Guardia-ML?
+Un sistema capaz de **detectar la guardia** de un boxeador en vivo a partir de su postura corporal, combinando lo mejor de la visión computacional y el aprendizaje profundo.
 
-Modelos Dense Neural Network (Keras)
+---
 
-Procesamiento de video en vivo (OpenCV)
+## 🏗️ Tecnologías
+- 🎯 **[MediaPipe Pose](https://google.github.io/mediapipe/solutions/pose.html)**  
+  Detección avanzada de puntos corporales (*pose landmarks*)
+- 🧠 **Deep Neural Networks (Keras)**  
+  Redes neuronales para clasificar la guardia
+- 🎥 **Procesamiento de video en vivo (OpenCV)**
+- 📁 **Dataset propio (privado por privacidad)**
 
-Dataset propio no incluido por privacidad
+---
 
-El objetivo es permitir entrenar modelos basados en posturas corporales y utilizarlos en tiempo real para clasificar la posición del usuario.
+## 🚀 Características principales
 
-🚀 Características principales
+| Función                       | Descripción                                |
+|-------------------------------|--------------------------------------------|
+| 📍 Detección de pose          | Ubicación precisa de puntos corporales     |
+| 📐 Cálculo de ángulos         | Ángulos automáticos entre puntos clave     |
+| 🏋️ Entrenamiento personalizado| Ajusta el modelo a tus propios datos       |
+| 🗂️ Guardado automático        | Imágenes + datasets en disco               |
+| ⚡ Inferencia en tiempo real   | Clasificación instantánea con webcam       |
+| 🔒 Sin datos sensibles        | Proyecto limpio y modular                  |
+| 🚢 Listo para producción      | ¡Usa, prueba, expande!                     |
 
-✔ Detección de puntos corporales (pose landmarks)
-✔ Cálculo de ángulos corporales
-✔ Entrenamiento de modelo DNN
-✔ Guardado automático de imágenes/dataset
-✔ Inferencia en tiempo real
-✔ Proyecto limpio sin datos sensibles
-✔ Listo para producción
+---
 
-📂 Estructura del proyecto
-src/
-  train.py       # Entrenar modelo
-  inference.py   # Inferencia en tiempo real (webcam)
-  utils.py       # Carga, escalado, funciones
-  angles.py      # Cálculo de ángulos con 3 puntos
+## 🗂️ Estructura del proyecto
 
-models/          # Modelos entrenados (vacío)
-data/            # Dataset privado (vacío)
-notebooks/       # Notebooks limpios
-requirements.txt # Dependencias
-LICENSE          # Apache 2.0
+```
+📦 guardia-ml/
+│
+├─ src/
+│    ├─ train.py       # 🏋️ Entrenamiento del modelo
+│    ├─ inference.py   # ⚡ Inferencia en tiempo real (webcam)
+│    ├─ utils.py       # 🛠️ Utilidades y escalado de datos
+│    └─ angles.py      # 📐 Cálculo de ángulos
+│
+├─ models/             # 📦 Modelos entrenados (vacío)
+├─ data/               # 📊 Dataset privado (vacío)
+├─ notebooks/          # 📓 Notebooks limpios
+├─ requirements.txt    # 📜 Dependencias del proyecto
+└─ LICENSE             # 📄 Licencia Apache 2.0
+```
 
-🔧 Instalación
+---
 
-Clona el repositorio:
+## 🔧 Instalación
 
-git clone https://github.com/tu_usuario/guardia-ml
-cd guardia-ml
+1. **Clona el repositorio:**  
+   ```bash
+   git clone https://github.com/tu_usuario/guardia-ml
+   cd guardia-ml
+   ```
 
+2. **Instala las dependencias:**  
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Instala dependencias:
+3. **Crea las carpetas necesarias:**  
+   ```bash
+   mkdir data models
+   ```
 
-pip install -r requirements.txt
+---
 
+## 📥 Dataset (Privado)
 
-Crea las carpetas necesarias:
+🚫 **Por privacidad, el dataset NO está incluido.**
 
-mkdir data models
+Debes colocar tu dataset en la ruta:
 
-📥 Dataset (Privado)
+```
+data/tu_archivo.csv
+```
 
-Por privacidad, el dataset NO está incluido.
+**Formato esperado:**
+```
+feature1,feature2,...,label
+(valores separados por comas o tabulaciones)
+```
 
-Debe colocarse en:
+---
 
-/data/tu_archivo.csv
+## 🧠 Entrenamiento del modelo
 
+Entrena tu propio modelo con:
 
-Formato esperado:
-
-feature1	feature2	...	label
-🧠 Entrenar el modelo
+```bash
 python src/train.py
+```
 
+Se guardan automáticamente:
+- 🤖 Modelo: `models/modelo_guardia.keras`
+- 🧮 Escalador: `models/scaler_guardia.joblib`
 
-El modelo entrenado se guardará automáticamente en:
+---
 
-models/modelo_guardia.keras
+## 🎥 Inferencia en tiempo real
 
+¡Usa tu webcam para clasificar tu guardia!
 
-Y el scaler en:
-
-models/scaler_guardia.joblib
-
-🎥 Inferencia en tiempo real
-
-Con la webcam:
-
+```bash
 python src/inference.py
+```
 
+Verás en pantalla:
+- 🕴️ Tu pose detectada
+- 🥊 Tu guardia predicha
+- 📊 Precisión del modelo
+- 🖼️ Frames procesados por segundo
 
-Esto mostrará:
+---
 
-Tu pose detectada
+## ⚖️ Licencia
 
-Tu guardia predicha
+Este proyecto está bajo la [Apache License 2.0](LICENSE).  
+¡Uso libre, siempre con atribución! 🚀
 
-Precisión del modelo
+---
 
-Cantidad de frames procesados
-
-📝 Licencia
-
-Este proyecto está bajo la Apache License 2.0, permitiendo uso libre con atribución.
+> _Disfruta clasificando guardias y lleva tu entrenamiento de boxeo al siguiente nivel._  
+> _¡Contribuciones, ideas y mejoras siempre son bienvenidas!_ 🥇🥊✨
